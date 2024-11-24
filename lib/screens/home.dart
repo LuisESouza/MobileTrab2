@@ -54,40 +54,40 @@ class _HomePageState extends State<HomePage> {
     }
 
     return SizedBox(
-  height: 210,
-  child: ListView.builder(
-    scrollDirection: Axis.horizontal,
-    itemCount: items.length,
-    itemBuilder: (context, index) {
-      final item = items[index];
-      return Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: GestureDetector(
-          onTap: () {
-            Navigator.pushNamed(
-              context,
-              '/highlights',
-              arguments: item,
-            );
-          },
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Image.network(
-              'https://image.tmdb.org/t/p/w200${item['poster_path']}',
-              width: 120,
-              height: 150,
-              fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) => const Icon(
-                Icons.image_not_supported,
-                size: 120,
+      height: 210,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          final item = items[index];
+          return Padding(
+            padding: const EdgeInsets.all(3.0),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  '/highlights',
+                  arguments: item,
+                );
+              },
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(2),
+                child: Image.network(
+                  'https://image.tmdb.org/t/p/w200${item['poster_path']}',
+                  width: 120,
+                  height: 150,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => const Icon(
+                    Icons.image_not_supported,
+                    size: 120,
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-      );
-    },
-  ),
-);
+          );
+        },
+      ),
+    );
   }
 
   @override
@@ -106,30 +106,63 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.all(10.0),
-                        child: Text(
-                          'Filmes',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            '/listall',
+                            arguments: 'filmes',
+                          );
+                        },
+                        child: const Padding(
+                          padding: EdgeInsets.all(10.0),
+                          child: Text(
+                            'Filmes',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
                       buildCategory(_movies, 'filme'),
-                      const Padding(
-                        padding: EdgeInsets.all(10.0),
-                        child: Text(
-                          'Séries',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            '/listall',
+                            arguments: 'series',
+                          );
+                        },
+                        child: const Padding(
+                          padding: EdgeInsets.all(10.0),
+                          child: Text(
+                            'Séries',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
                       buildCategory(_series, 'série'),
-                      const Padding(
-                        padding: EdgeInsets.all(10.0),
-                        child: Text(
-                          'Novelas',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            '/listall',
+                            arguments: 'novelas',
+                          );
+                        },
+                        child: const Padding(
+                          padding: EdgeInsets.all(10.0),
+                          child: Text(
+                            'Novelas',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
                       buildCategory(_novelas, 'novela'),

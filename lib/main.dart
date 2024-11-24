@@ -1,6 +1,6 @@
 // main.dart
 import 'package:flutter/material.dart';
-import 'routes/app_routes.dart'; // Importe as rotas do seu projeto
+import 'routes/app_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,13 +12,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(context) {
     return MaterialApp(
-      title: 'Globoplay', // Nome do app
+      title: 'Globoplay',
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xFF1F1F1F),
         appBarTheme: const AppBarTheme(
           backgroundColor: Color(0xFF1F1F1F),
           titleTextStyle: TextStyle(
-            color: Colors.white, // Cor do título do AppBar
+            color: Colors.white,
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
@@ -49,8 +49,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: '/', // Define a tela inicial como SplashScreen
-      routes: AppRoutes.routes, // Usa as rotas definidas no AppRoutes
+      initialRoute: '/', 
+      routes: AppRoutes.routes,
     );
   }
 }

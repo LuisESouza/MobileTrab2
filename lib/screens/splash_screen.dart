@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           style: const TextStyle(
             fontSize: 48, // Tamanho da fonte
-            fontWeight: FontWeight.bold, // Peso da fonte
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),

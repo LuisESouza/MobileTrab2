@@ -11,11 +11,11 @@ class AppRoutes {
     '/main': (context) => const MainScreen(),
     '/highlights': (context) {
       final media = ModalRoute.of(context)?.settings.arguments;
-      return HighlightsScreen(media: media); 
+      return HighlightsScreen(media: media);
     },
     '/listall': (context) {
-      final media = ModalRoute.of(context)?.settings.arguments;
-      return ListScreen(media: media);
-    }
+      final mediaType = ModalRoute.of(context)?.settings.arguments as String;
+      return ListScreen(mediaType: mediaType);
+    },
   };
 }
