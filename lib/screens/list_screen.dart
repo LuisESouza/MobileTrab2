@@ -23,20 +23,19 @@ class _ListScreenState extends State<ListScreen> {
   void initState() {
     super.initState();
     _scrollController = ScrollController();
-    _scrollController.addListener(_scrollListener); // Adiciona o listener para o scroll
-    _fetchFilmes(); // Carrega os filmes iniciais
+    _scrollController.addListener(_scrollListener);
+    _fetchFilmes();
   }
 
-  // Função de escuta do scroll
+  // Funcao de escuta do scroll
   void _scrollListener() {
     if (_scrollController.position.pixels == _scrollController.position.maxScrollExtent) {
-      // Quando o usuário chega no fim da lista
       _fetchFilmes();
     }
   }
 
   Future<void> _fetchFilmes() async {
-    if (isLoading) return;  // Evita múltiplas requisições
+    if (isLoading) return;
 
     setState(() {
       isLoading = true;
@@ -45,7 +44,7 @@ class _ListScreenState extends State<ListScreen> {
     try {
       var response;
       
-      // Carregar mais páginas dependendo do tipo
+      // Carregar mais paginas dependendo do tipo
       if (widget.mediaType == "filmes") {
         response = await _apiService.fetchMovies(currentPage);
       } else if (widget.mediaType == "novelas") {
@@ -55,8 +54,8 @@ class _ListScreenState extends State<ListScreen> {
       }
 
       setState(() {
-        filmes.addAll(response);  // Adiciona os novos filmes à lista existente
-        currentPage++;  // Incrementa a página para a próxima requisição
+        filmes.addAll(response);  // Adiciona os novos filmes
+        currentPage++;  // Incrementa a pagina para a próxima requisicao
       });
     } catch (e) {
       print('Erro ao carregar filmes: $e');
