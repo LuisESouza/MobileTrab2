@@ -55,7 +55,7 @@ class _ListScreenState extends State<ListScreen> {
 
       setState(() {
         filmes.addAll(response);  // Adiciona os novos filmes
-        currentPage++;  // Incrementa a pagina para a próxima requisicao
+        currentPage++;  // Incrementa a pagina para a proxima requisicao
       });
     } catch (e) {
       print('Erro ao carregar filmes: $e');
